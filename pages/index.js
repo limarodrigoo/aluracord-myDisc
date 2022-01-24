@@ -12,8 +12,8 @@ export default function PaginaInicial() {
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.primary[500],
-          backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)',
+          backgroundColor: appConfig.theme.colors.primary["050"],
+          backgroundImage: 'url(https://i.pinimg.com/originals/e2/85/b2/e285b26b018da31c9be91c913e02684e.png)',
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
       >
@@ -40,7 +40,7 @@ export default function PaginaInicial() {
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
             }}
           >
-            <Title >Boas vindas de volta!</Title>
+            <Title >Boas vindas Radiante!</Title>
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>
@@ -113,7 +113,7 @@ export default function PaginaInicial() {
         <Button
           buttonColors={{
             contrastColor: appConfig.theme.colors.neutrals["999"],
-            mainColor: appConfig.theme.colors.primary["050"],
+            mainColor: appConfig.theme.colors.primary["500"],
             mainColorLight: appConfig.theme.colors.primary[500],
             mainColorStrong: appConfig.theme.colors.primary[500],
           }}
