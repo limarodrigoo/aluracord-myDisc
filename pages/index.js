@@ -1,4 +1,4 @@
-import { Box, Button, Text, TextField, Image } from '@skynexui/components';
+import { Box, Button, Text, TextField, Image, Icon } from '@skynexui/components';
 import appConfig from '../config.json';
 import GlobalStyle from '../components/GlobalStyle';
 import Title from '../components/Title';
@@ -67,6 +67,8 @@ export default function PaginaInicial() {
                 mainColorStrong: appConfig.theme.colors.primary[600],
               }}
             />
+
+
           </Box>
           {/* Formulário */}
 
@@ -108,6 +110,19 @@ export default function PaginaInicial() {
           </Box>
           {/* Photo Area */}
         </Box>
+        <Button
+          buttonColors={{
+            contrastColor: appConfig.theme.colors.neutrals["999"],
+            mainColor: appConfig.theme.colors.primary["050"],
+            mainColorLight: appConfig.theme.colors.primary[500],
+            mainColorStrong: appConfig.theme.colors.primary[500],
+          }}
+          href="https://github.com/limarodrigoo"
+          iconName="github"
+          label="Github"
+          size="md"
+          variant="secondary"
+        />
       </Box>
     </>
   );
