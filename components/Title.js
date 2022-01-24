@@ -1,4 +1,6 @@
-export default function Title({tag = h1, children}) {
+import appConfig from '../config.json'
+
+export default function Title({tag = 'h1', children}) {
   const Tag = tag;
   return (
     <>
