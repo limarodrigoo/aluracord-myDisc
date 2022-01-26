@@ -1,14 +1,21 @@
-import { Box, Button, Text, TextField, Image, Icon } from '@skynexui/components';
+import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import appConfig from '../config.json';
-import GlobalStyle from '../components/GlobalStyle';
 import Title from '../components/Title';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+
 
 export default function PaginaInicial() {
-  const username = 'limarodrigoo';
+  const [username, setUsername] = useState('limarodrigoo');
+
+  const handleInputChange = ({ target: { value } }) => {
+    setUsername(value);
+  }
+
+  const router = useRouter();
 
   return (
     <>
-      <GlobalStyle />
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -35,6 +42,12 @@ export default function PaginaInicial() {
           {/* Formulário */}
           <Box
             as="form"
+            onSubmit={
+              function (event) {
+                event.preventDefault();
+                router.push('chat');
+              }
+            }
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
@@ -46,6 +59,10 @@ export default function PaginaInicial() {
             </Text>
 
             <TextField
+              onChange={
+                handleInputChange
+              }
+              value={username}
               fullWidth
               textFieldColors={{
                 neutral: {
@@ -68,10 +85,8 @@ export default function PaginaInicial() {
               }}
             />
 
-
           </Box>
           {/* Formulário */}
-
 
           {/* Photo Area */}
           <Box
@@ -89,24 +104,28 @@ export default function PaginaInicial() {
               minHeight: '240px',
             }}
           >
-            <Image
-              styleSheet={{
-                borderRadius: '50%',
-                marginBottom: '16px',
-              }}
-              src={`https://github.com/${username}.png`}
-            />
-            <Text
-              variant="body4"
-              styleSheet={{
-                color: appConfig.theme.colors.neutrals[200],
-                backgroundColor: appConfig.theme.colors.neutrals[900],
-                padding: '3px 10px',
-                borderRadius: '1000px'
-              }}
-            >
-              {username}
-            </Text>
+            {username.length > 2 && (
+              <>
+                <Image
+                  styleSheet={{
+                    borderRadius: '50%',
+                    marginBottom: '16px',
+                  }}
+                  src={`https://github.com/${username}.png`}
+                />
+                <Text
+                  variant="body4"
+                  styleSheet={{
+                    color: appConfig.theme.colors.neutrals[200],
+                    backgroundColor: appConfig.theme.colors.neutrals[900],
+                    padding: '3px 10px',
+                    borderRadius: '1000px'
+                  }}
+                >
+                  {username}
+                </Text>
+              </>
+            )}
           </Box>
           {/* Photo Area */}
         </Box>
