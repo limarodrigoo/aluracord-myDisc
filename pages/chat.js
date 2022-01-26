@@ -3,7 +3,6 @@ import { useState } from 'react';
 import appConfig from '../config.json';
 
 export default function ChatPage() {
-  // Sua lógica vai aqui
 
   const [message, setMessage] = useState('');
   const [messageList, setMessageList] = useState([]);
@@ -22,7 +21,6 @@ export default function ChatPage() {
     setMessage('');
   }
 
-  // ./Sua lógica vai aqui
   return (
     <Box
       styleSheet={{
